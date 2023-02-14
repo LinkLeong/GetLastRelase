@@ -8,13 +8,13 @@ WORKDIR /app
 COPY . .
 
 # 下载依赖
-RUN go mod download
+RUN go mod tidy
 
 # 构建应用
 RUN go build -o main .
 
 # 暴露应用端口
-EXPOSE 8080
+EXPOSE 8089
 VOLUME /etc/config
 
 # 运行应用
