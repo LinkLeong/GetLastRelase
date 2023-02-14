@@ -1,0 +1,4 @@
+{
+    "repos": ["IceWhaleTech/CasaOS","IceWhaleTech/CasaOS-AppManagement","IceWhaleTech/CasaOS-UI","IceWhaleTech/CasaOS-MessageBus","IceWhaleTech/CasaOS-LocalStorage","IceWhaleTech/CasaOS-UserService","IceWhaleTech/CasaOS-Gateway","IceWhaleTech/CasaOS-CLI"],
+    "arch":["amd64","all"]
+}

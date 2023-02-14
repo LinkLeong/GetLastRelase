@@ -1,0 +1,37 @@
+builds:
+- env:
+  - CGO_ENABLED=0
+  binary: get-last-release
+  goos:
+  - linux
+  goarch:
+  - amd64
+  - arm64
+dockers:
+  - id: get-last-release-amd64
+    ids:
+      - get-last-release-amd64
+    image_templates:
+      - "ghcr.io/LinkLeong/get-last-release:latest"
+      - "ghcr.io/LinkLeong/get-last-release:{{ .Version }}-amd64"
+    goos: linux
+    goarch: amd64
+
+  - id: get-last-release-arm64
+    ids:
+      - get-last-release-arm64
+    image_templates:
+      - "ghcr.io/LinkLeong/get-last-release:latest-arm64"
+      - "ghcr.io/LinkLeong/get-last-release:{{ .Version }}-arm64"
+    goos: linux
+    goarch: arm64
+
+docker_manifests:
+  - name_template: "ghcr.io/LinkLeong/get-last-release:latest"
+    image_templates:
+      - "ghcr.io/LinkLeong/get-last-release:latest-amd64"
+      - "ghcr.io/LinkLeong/get-last-release:latest-arm64"
+  - name_template: "ghcr.io/LinkLeong/get-last-release:{{ .Version }}"
+    image_templates:
+      - "ghcr.io/LinkLeong/get-last-release:{{ .Version }}-amd64"
+      - "ghcr.io/LinkLeong/get-last-release:{{ .Version }}-arm64"
